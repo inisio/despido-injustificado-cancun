@@ -1,276 +1,600 @@
-/* ==========================================================================
-   PURE CUSTOM CSS - NO TAILWIND - NO FRAMEWORKS
-   Clean Editorial Hero (Inspired by Minimalist High-Contrast Reference Layout)
-   ========================================================================== */
+      /* =============================================================
+         THE DAILY ROCKER - PURE CSS FLEXBOX NEWSPAPER POSTER
+         Adaptado para mantener columnas en móvil (no una sola vía)
+         ============================================================= */
 
-:root {
-  --font-heading: 'Cinzel', serif, Georgia, serif;
-  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --color-dark: #07090e;
-  --color-gold: #f59e0b;
-  --color-gold-hover: #fbbf24;
-  --color-text-white: #ffffff;
-  --color-text-muted: #a1a1aa;
+      /* Variables de Color y Tema */
+      :root {
+        --paper-bg: #e5ddcd;
+        --paper-dark: #ccbeaa;
+        --ink-color: #1a1a1a;
+        --red-accent: #ab282e;
+        --dark-sidebar: #242528;
+      }
+
+      /* Reset básico y cuerpo */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: #f2f2f7;
+        color: var(--ink-color);
+        font-family: 'EB Garamond', serif;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+        padding: 30px 15px;
+      }
+
+      /* Contenedor principal de la hoja de periódico */
+      .newspaper-poster {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 760px;
+        background-color: var(--paper-bg);
+        background-image: radial-gradient(circle at 50% 50%, var(--paper-bg) 0%, var(--paper-dark) 100%);
+        padding: 24px 28px;
+        position: relative;
+        box-shadow: 
+          0 12px 35px rgba(0, 0, 0, 0.8),
+          0 0 0 1px rgba(0, 0, 0, 0.3);
+        border-radius: 2px;
+        overflow: hidden;
+      }
+
+      /* Efecto de pliegues (solo decorativo) */
+      .newspaper-poster::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        z-index: 10;
+        background: 
+          linear-gradient(to bottom, 
+            transparent 49.6%, 
+            rgba(0, 0, 0, 0.28) 50%, 
+            rgba(255, 255, 255, 0.2) 50.4%, 
+            transparent 51%),
+          linear-gradient(to right, 
+            transparent 49.6%, 
+            rgba(0, 0, 0, 0.22) 50%, 
+            rgba(255, 255, 255, 0.15) 50.4%, 
+            transparent 51%),
+          radial-gradient(ellipse at center, rgba(0,0,0,0) 60%, rgba(0,0,0,0.2) 100%);
+      }
+
+      /* -------------------------------------------------------------
+         1. CABECERA
+         ------------------------------------------------------------- */
+      .header-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 8px;
+      }
+
+      .header-top-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid var(--ink-color);
+        padding-bottom: 6px;
+        margin-bottom: 4px;
+      }
+
+      .header-badge {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        border: 2px solid var(--red-accent);
+        padding: 3px 6px;
+        width: 82px;
+        background-color: rgba(255, 255, 255, 0.3);
+        flex-shrink: 0;
+      }
+
+      .badge-top {
+        font-family: 'Oswald', sans-serif;
+        font-size: 8px;
+        font-weight: 700;
+        color: var(--red-accent);
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        border-bottom: 1px solid var(--red-accent);
+        padding-bottom: 1px;
+        width: 100%;
+        line-height: 1;
+      }
+
+      .badge-middle {
+        font-family: 'Oswald', sans-serif;
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--red-accent);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        line-height: 1.1;
+        margin: 1px 0;
+      }
+
+      .badge-bottom {
+        font-family: 'Oswald', sans-serif;
+        font-size: 7px;
+        font-weight: 700;
+        color: var(--red-accent);
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        border-top: 1px solid var(--red-accent);
+        padding-top: 1px;
+        width: 100%;
+        line-height: 1;
+      }
+
+      .header-title-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        text-align: center;
+        padding: 0 6px;
+      }
+
+      .main-newspaper-title {
+        font-family: 'UnifrakturMaguntia', serif;
+        font-size: 54px;
+        font-weight: 400;
+        color: var(--ink-color);
+        line-height: 0.9;
+        letter-spacing: -1px;
+      }
+
+      .header-tagline-bar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-top: 3px double var(--ink-color);
+        border-bottom: 3px double var(--ink-color);
+        padding: 3px 0;
+        font-family: 'Oswald', sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        color: var(--ink-color);
+        text-transform: uppercase;
+        text-align: center;
+      }
+
+      /* -------------------------------------------------------------
+         2. TITULAR GIGANTE
+         ------------------------------------------------------------- */
+      .headline-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 4px 0 8px 0;
+      }
+
+      .headline-rocked {
+        font-family: 'Anton', 'Bebas Neue', sans-serif;
+        font-size: 138px;
+        line-height: 0.82;
+        font-weight: 400;
+        color: var(--ink-color);
+        letter-spacing: -2px;
+        text-transform: uppercase;
+        text-align: center;
+        width: 100%;
+        text-shadow: 1px 1px 0px rgba(0,0,0,0.15);
+      }
+
+      /* -------------------------------------------------------------
+         3. BANDA ROJA
+         ------------------------------------------------------------- */
+      .red-banner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        background-color: var(--red-accent);
+        color: #ffffff;
+        padding: 6px 0;
+        margin-bottom: 12px;
+        border-top: 2px solid var(--ink-color);
+        border-bottom: 2px solid var(--ink-color);
+        box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+      }
+
+      .red-banner-text {
+        font-family: 'Anton', 'Oswald', sans-serif;
+        font-size: 25px;
+        font-weight: 400;
+        letter-spacing: 3.5px;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 1;
+      }
+
+      /* -------------------------------------------------------------
+         4. HERO (BROADCAST + IMAGEN)
+         ------------------------------------------------------------- */
+      .hero-flex-section {
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        width: 100%;
+        margin-bottom: 12px;
+      }
+
+      .broadcast-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        flex: 0 0 170px;
+        background-color: var(--dark-sidebar);
+        color: #e5ddcd;
+        padding: 10px 8px;
+        text-align: center;
+        border: 1px solid #111;
+      }
+
+      .broadcast-header {
+        font-family: 'Oswald', sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        border-bottom: 1px solid #555;
+        width: 100%;
+        padding-bottom: 4px;
+      }
+
+      .broadcast-live-title {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 52px;
+        line-height: 0.85;
+        color: #f5f0e6;
+        letter-spacing: 1px;
+        margin: 2px 0;
+      }
+
+      .broadcast-year {
+        font-family: 'Oswald', sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        background-color: #121214;
+        color: #f5f0e6;
+        padding: 2px 10px;
+        border: 1px solid #444;
+        margin: 4px 0;
+        text-transform: uppercase;
+      }
+
+      .broadcast-date-frame {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid #e5ddcd;
+        padding: 4px 6px;
+        width: 88%;
+        margin: 4px 0;
+      }
+
+      .broadcast-date-text {
+        font-family: 'Anton', sans-serif;
+        font-size: 30px;
+        line-height: 0.9;
+        color: #ffffff;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+
+      .broadcast-venue {
+        font-family: 'Oswald', sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        background-color: #121214;
+        color: #f5f0e6;
+        padding: 2px 8px;
+        text-transform: uppercase;
+        width: 90%;
+        margin-top: 4px;
+      }
+
+      .broadcast-city {
+        font-family: 'Caveat', cursive;
+        font-size: 28px;
+        color: #e5ddcd;
+        line-height: 1;
+        margin-top: -2px;
+      }
+
+      .concert-image-box {
+        display: flex;
+        flex: 1;
+        position: relative;
+        overflow: hidden;
+        border: 2px solid var(--ink-color);
+        max-height: 235px;
+      }
+
+      .concert-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: contrast(125%) grayscale(60%) sepia(25%);
+      }
+
+      /* -------------------------------------------------------------
+         5. ARTÍCULOS EN COLUMNAS (FLEXBOX)
+         ------------------------------------------------------------- */
+      .articles-flex-container {
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        width: 100%;
+        margin-bottom: 12px;
+        font-family: 'EB Garamond', serif;
+        font-size: 9px;
+        line-height: 1.25;
+        color: #1a1a1a;
+        text-align: justify;
+      }
+
+      .article-col-left {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 6px;
+      }
+
+      .article-cols-right-block {
+        display: flex;
+        flex-direction: column;
+        flex: 3;
+        gap: 8px;
+      }
+
+      .article-row-3col {
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        width: 100%;
+      }
+
+      .article-col-single {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 6px;
+      }
+
+      .article-col-single p,
+      .article-col-left p {
+        margin: 0 0 6px 0;
+        text-indent: 8px;
+      }
+
+      .article-col-single p:first-of-type,
+      .article-col-left p:first-of-type {
+        text-indent: 0;
+      }
+
+      .article-col-single ul {
+        padding-left: 1.2rem;
+        margin: 0 0 6px 0;
+        list-style: disc;
+      }
+
+      .rumors-banner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--ink-color);
+        color: #ffffff;
+        padding: 4px 8px;
+        margin: 2px 0;
+        width: 100%;
+      }
+
+      .rumors-banner-text {
+        font-family: 'Oswald', 'Bebas Neue', sans-serif;
+        font-size: 13.5px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 1;
+      }
+
+      /* -------------------------------------------------------------
+         6. PIE DE PÁGINA
+         ------------------------------------------------------------- */
+      .footer-banner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--ink-color);
+        color: #ffffff;
+        padding: 6px 12px;
+        width: 100%;
+        border-top: 1px solid #000;
+      }
+
+      .footer-banner-text {
+        font-family: 'Oswald', sans-serif;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 2.2px;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 1;
+      }
+
+      /* =============================================================
+         RESPONSIVE: MANTIENE MÚLTIPLES COLUMNAS EN MÓVIL
+         ============================================================= */
+      @media (max-width: 680px) {
+        .newspaper-poster {
+          padding: 14px;
+        }
+
+        /* Cabecera: reducir tamaños y ocultar badges en pantallas muy pequeñas */
+        .header-badge {
+          width: 60px;
+          padding: 2px 4px;
+        }
+        .badge-top,
+        .badge-bottom {
+          font-size: 6px;
+        }
+        .badge-middle {
+          font-size: 12px;
+        }
+        .main-newspaper-title {
+          font-size: 36px;
+        }
+        .header-tagline-bar {
+          font-size: 9px;
+          letter-spacing: 1px;
+        }
+
+        .headline-rocked {
+          font-size: 80px;
+        }
+
+        .red-banner-text {
+          font-size: 16px;
+          letter-spacing: 1.5px;
+        }
+
+        /* Hero: mantener fila, pero achicar broadcast y imagen */
+        .hero-flex-section {
+          flex-direction: row;
+          gap: 8px;
+        }
+        .broadcast-box {
+          flex: 0 0 120px;
+          padding: 6px;
+        }
+        .broadcast-live-title {
+          font-size: 36px;
+        }
+        .broadcast-date-text {
+          font-size: 22px;
+        }
+        .broadcast-city {
+          font-size: 20px;
+        }
+        .concert-image-box {
+          max-height: 180px;
+        }
+
+        /* Artículos: mantener fila pero con ajustes */
+        .articles-flex-container {
+          flex-direction: row;
+          gap: 8px;
+        }
+        .article-col-left {
+          flex: 1;
+        }
+        .article-cols-right-block {
+          flex: 2;
+        }
+        .article-row-3col {
+          flex-wrap: wrap;  /* permite que las columnas salten a la siguiente fila */
+          gap: 8px;
+        }
+        .article-col-single {
+          flex: 0 0 calc(50% - 4px); /* dos columnas */
+          margin-bottom: 4px;
+        }
+        /* El banner de rumores debe ocupar el 100% */
+        .rumors-banner {
+          width: 100%;
+        }
+        .rumors-banner-text {
+          font-size: 11px;
+        }
+
+        /* Ajustar tamaños de fuente en artículos */
+        .articles-flex-container {
+          font-size: 8px;
+        }
+      }
+
+      /* Para pantallas muy pequeñas (menos de 480px) */
+      @media (max-width: 480px) {
+        .header-badge {
+          display: none; /* ocultar insignias para ganar espacio */
+        }
+        .main-newspaper-title {
+          font-size: 28px;
+        }
+        .headline-rocked {
+          font-size: 60px;
+        }
+        .broadcast-box {
+          flex: 0 0 90px;
+        }
+        .broadcast-live-title {
+          font-size: 28px;
+        }
+        .broadcast-date-text {
+          font-size: 18px;
+        }
+        .broadcast-city {
+          font-size: 16px;
+        }
+        .hero-flex-section {
+          gap: 6px;
+        }
+        .concert-image-box {
+          max-height: 140px;
+        }
+        .article-col-single {
+          flex: 0 0 100%; /* en móviles muy pequeños, una sola columna es inevitable, pero mantenemos al menos dos en la mayoría */
+        }
+        .articles-flex-container {
+          flex-direction: column; /* solo en este breakpoint extremo permitimos columna única */
+        }
+        .article-cols-right-block {
+          flex: 1;
+        }
+        .article-row-3col {
+          flex-direction: column;
+        }
+      }
+
+@keyframes btowner {
+  0% {
+    transform: scale(0.9);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.9);
+  }
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html, body {
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  overflow: hidden !important;
-  background-color: var(--color-dark);
-  color: var(--color-text-white);
-  font-family: var(--font-body);
-  -webkit-font-smoothing: antialiased;
-}
-
-/* Fullscreen Hero Container */
-.hero-container {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 3rem 4rem;
-  overflow: hidden;
-}
-
-/* Background image & cinematic gradient overlay */
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.hero-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center right;
-  filter: brightness(0.7) contrast(1.1);
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, 
-    #07090e 0%, 
-    rgba(7, 9, 14, 0.95) 20%, 
-    rgba(7, 9, 14, 0.4) 80%, rgba(7, 9, 14, 0.2) 100%),
-    linear-gradient(180deg, 
-      rgba(7, 9, 14, 0.6) 0%, 
-      transparent 40%, rgba(7, 9, 14, 0.9) 100%);
-}
-
-/* Header */
-.hero-header {
-  position: relative;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.brand-name {
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--color-text-white);
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.brand-badge {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--color-gold);
-  background: rgba(245, 158, 11, 0.12);
-  border: 1px solid rgba(245, 158, 11, 0.3);
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
-}
-
-/* Main Content Area */
-.hero-content {
-  position: relative;
-  z-index: 10;
-  max-width: 650px;
-  display: flex;
-  flex-direction: column;
-  gap: 1.75rem;
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
-.hero-title {
-  font-family: var(--font-heading);
-  font-size: 3.5rem;
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  color: var(--color-text-white);
-}
-
-.hero-title span {
-  color: var(--color-gold);
+.btn-owner {
   display: block;
-}
-
-.hero-description {
-  font-size: 1.05rem;
-  line-height: 1.6;
-  color: #e4e4e7;
-  max-width: 540px;
-  font-weight: 400;
-}
-
-.hero-description strong {
-  color: var(--color-gold);
-  font-weight: 700;
-}
-
-/* Contact Button */
-.cta-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  background-color: #ffffff;
-  color: #07090e;
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  padding: 1.1rem 2.2rem;
-  border-radius: 6px;
-  text-decoration: none;
-  width: fit-content;
-  transition: all 0.25s ease;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-}
-
-.cta-button:hover {
-  background-color: var(--color-gold);
-  color: #07090e;
-  transform: translateY(-2px);
-  box-shadow: 0 15px 35px rgba(245, 158, 11, 0.3);
-}
-
-.cta-button svg {
-  width: 1.25rem;
-  height: 1.25rem;
-  transition: transform 0.25s ease;
-}
-
-.cta-button:hover svg {
-  transform: translateX(4px);
-}
-
-/* Bottom Bar (Document Requirements) */
-.hero-footer-bar {
-  position: relative;
-  z-index: 10;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 2rem;
-}
-
-.docs-section {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-
-.docs-label {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-text-muted);
-}
-
-.docs-chips-row {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
-.doc-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(8px);
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #e4e4e7;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.doc-chip:hover, .doc-chip.active {
-  background: rgba(245, 158, 11, 0.15);
-  border-color: var(--color-gold);
-  color: var(--color-gold);
-}
-
-.doc-chip svg {
-  width: 0.9rem;
-  height: 0.9rem;
-  color: var(--color-gold);
-}
-
-.location-tag {
-  font-size: 0.8rem;
-  color: var(--color-text-muted);
-  font-weight: 500;
-  white-space: nowrap;
-}
-
-/* Responsive adjustments for smaller screen heights/widths */
-@media (max-width: 1024px) {
-  .hero-container {
-    padding: 2rem;
-  }
-  .hero-title {
-    font-size: 2.5rem;
-  }
-  .hero-content {
-    gap: 1.25rem;
-  }
-}
-
-@media (max-height: 700px) {
-  .hero-container {
-    padding: 1.5rem 2rem;
-  }
-  .hero-title {
-    font-size: 2.2rem;
-  }
-  .hero-description {
-    font-size: 0.95rem;
-  }
-  .cta-button {
-    padding: 0.85rem 1.75rem;
-    font-size: 0.88rem;
-  }
+  animation: btowner 2s linear infinite;
 }

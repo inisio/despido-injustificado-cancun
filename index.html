@@ -42,105 +42,156 @@
     <meta name="theme-color" content="#0b0f1c" />
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Caveat:wght@600&family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=Oswald:wght@500;700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/main.css">
+    <link rel="stylesheet" href="./src/btn_siren.css">
+
+>>>>>>> Stashed changes
 
     <!-- CSS principal -->
     <link rel="stylesheet" href="./src/main.css" />
   </head>
   <body>
-    <!-- 100vh x 100vw Clean Hero Container -->
-    <div class="hero-container">
+    <!-- Hoja de Periódico -->
+    <article class="newspaper-poster">
       
-      <!-- Fondo Editorial -->
-      <div class="hero-bg">
-        <img 
-          src="./src/fondo.svg" 
-          alt="Defensa Jurídica Cancún" 
-          referrerpolicy="no-referrer"
-        />
-        <div class="hero-overlay"></div>
-      </div>
-
-      <!-- Header Superior Mínimo -->
-      <header class="hero-header">
-        <div class="brand-name">
-          <span>DESPIDO INJUSTIFICADO</span>
+      <!-- 1. CABECERA -->
+      <header class="header-container">
+        <div class="header-top-row">
+          <div class="header-badge">
+            <span class="badge-top">QUINTANA ROO</span>
+            <span class="badge-middle">CANCUN</span>
+            <span class="badge-bottom">ABOGADO LABORAL</span>
+          </div>
+          <div class="header-title-box">
+            <h1 class="main-newspaper-title">despido</h1>
+          </div>
+          <div class="header-badge">
+            <span class="badge-top">QUINTANA ROO</span>
+            <span class="badge-middle">CANCUN</span>
+            <span class="badge-bottom">ABOGADO LABORAL</span>
+          </div>
         </div>
-        <div class="brand-badge">
-          CANCÚN, Q. ROO
+        <div class="header-tagline-bar">
+          Reclama una indemnización justa.
         </div>
       </header>
 
-      <!-- Contenido Principal Estilo Editorial Hero -->
-      <main class="hero-content">
-        <h1 class="hero-title">
-          DESPIDO INJUSTIFICADO
-        </h1>
+      <!-- 2. TITULAR GIGANTE -->
+      <section class="headline-container">
+        <h2 class="headline-rocked">DESPEDIDO</h2>
+      </section>
 
-        <p class="hero-description">
-          Exige el 
-          <strong>100% de tu indemnización legal</strong> 
-          en Cancún. Tienes derecho a 3 meses de sueldo, prima de 
-          antigüedad, aguinaldo y vacaciones. No firmes tu renuncia 
-          sin antes asesorarte.
-        </p>
+      <!-- 3. BANDA ROJA -->
+      <div class="red-banner">
+        <h3 class="red-banner-text">Reclama una indemnización justa.</h3>
+      </div>
 
-        <a 
-          id="btn-contacto"
-          href="https://inisio.github.io/DefenzaJuridica/#contacto" 
-          target="_top"
-          rel="noopener noreferrer"
-          class="cta-button"
-        >
-          <span>CONTÁCTANOS AHORA</span>
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
+      <!-- 4. HERO (BROADCAST + IMAGEN) -->
+      
+      <section class="hero-flex-section">
+        <a href="https://inisio.github.io/DefenzaJuridica/#contacto" 
+        class="broadcast-box btn-owner">
+          <span class="broadcast-header btn-owner">ASESORATE</span>
+          <span class="broadcast-live-title">RECLAMA</span>
+          <span class="broadcast-year">2026</span>
+          <div class="broadcast-date-frame">
+            <span class="broadcast-date-text">SOLICITA YA!</span>
+          </div>
+          <span class="broadcast-venue">TU OPORTUNIDAD ES HOY</span>
+          <span class="broadcast-city">CANCUN</span>
         </a>
-      </main>
 
-      <!-- Barra Inferior de Requisitos / Documentos -->
-      <footer class="hero-footer-bar">
-        <div class="docs-section">
-          <span class="docs-label">Requisitos de Documentos:</span>
-          <div class="docs-chips-row">
-            <div class="doc-chip">
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>1. INE / Pasaporte</span>
+        <div class="concert-image-box">
+          <img 
+            src="./img/fondo.jpeg" 
+            alt="Asesoría legal laboral, abogado en Cancún" 
+            class="concert-image" 
+          />
+        </div>
+      </section>
+
+      <!-- 5. ARTÍCULOS EN COLUMNAS -->
+      <section class="articles-flex-container">
+        <!-- Columna izquierda -->
+        <div class="article-col-left">
+          <p>
+            El despido injustificado ocurre cuando el empleador termina la relación laboral sin causa legal justificada. En México, la Ley Federal del Trabajo protege al trabajador y establece el pago de una indemnización que incluye tres meses de salario, prima de antigüedad y salarios caídos.
+          </p>
+          <p>
+            Si has sido despedido sin justificación, tienes un plazo de 60 días hábiles para reclamar ante la Junta de Conciliación y Arbitraje. Contar con un abogado laboral especializado aumenta significativamente tus posibilidades de obtener una compensación justa y rápida.
+          </p>
+          <p>
+            En Cancún y todo Quintana Roo, nuestros servicios legales te acompañan en cada etapa: desde la conciliación hasta el juicio. No dejes pasar tu derecho, la asesoría oportuna es clave para un resultado favorable.
+          </p>
+        </div>
+
+        <!-- Bloque derecho (3 columnas) -->
+        <div class="article-cols-right-block">
+          <!-- Fila superior de 3 columnas -->
+          <div class="article-row-3col">
+            <div class="article-col-single">
+              <p>La indemnización por despido injustificado se compone de:</p>
+              <ul>
+                <li>3 meses de salario integrado.</li>
+                <li>20 días por año trabajado (prima de antigüedad).</li>
+                <li>Salarios caídos desde el despido hasta la fecha de laudo.</li>
+              </ul>
+              <p>Además, si el patrón no registra al trabajador ante el IMSS, las prestaciones pueden incrementarse.</p>
             </div>
-            <div class="doc-chip">
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>2. Recibos de Nómina</span>
+            <div class="article-col-single">
+              <p>
+                La Junta de Conciliación y Arbitraje es la autoridad encargada de resolver los conflictos laborales. El procedimiento inicia con una etapa conciliatoria y, de no lograrse acuerdo, se abre el juicio ordinario.
+              </p>
+              <p>
+                Contar con pruebas documentales (contrato, recibos de nómina, constancias) es fundamental para acreditar la relación laboral y el salario.
+              </p>
             </div>
-            <div class="doc-chip">
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>3. Datos de la Empresa</span>
+            <div class="article-col-single">
+              <p>
+                El abogado laboral no solo representa al trabajador, también asesora a empresas para evitar litigios y cumplir con la normatividad. La prevención y el cumplimiento de la ley son la mejor inversión.
+              </p>
+              <p>
+                En nuestro despacho ofrecemos planes de defensa legal con honorarios claros y resultados medibles.
+              </p>
             </div>
-            <div class="doc-chip">
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>4. Pruebas o Carta de Despido</span>
+          </div>
+
+          <!-- Banner negro que cruza las 3 columnas -->
+          <div class="rumors-banner">
+            <h4 class="rumors-banner-text">DERECHOS LABORALES QUE DEBES CONOCER</h4>
+          </div>
+
+          <!-- Fila inferior de 3 columnas -->
+          <div class="article-row-3col">
+            <div class="article-col-single">
+              <p>
+                El salario base de cotización ante el IMSS determina el monto de las prestaciones. Es común que los patrones reporten un salario menor al real; esto afecta la indemnización. Nuestro equipo revisa cada caso para impugnar estas prácticas.
+              </p>
+            </div>
+            <div class="article-col-single">
+              <p>
+                La prima de antigüedad equivale a 12 días de salario por cada año laborado. Se paga incluso en casos de renuncia voluntaria después de 15 años de servicio. Conoce tus derechos y exige lo que te corresponde.
+              </p>
+            </div>
+            <div class="article-col-single">
+              <p>
+                El acoso laboral y la discriminación son causas de rescisión de la relación con responsabilidad para el patrón. Si sufres estas conductas, podemos iniciar una demanda por daño moral adicional a la indemnización.
+              </p>
             </div>
           </div>
         </div>
+      </section>
 
-        <div class="location-tag">
-          Abogados Laborales en Cancún
-        </div>
+      <!-- 6. PIE DE PÁGINA -->
+      <footer class="footer-banner">
+        <p class="footer-banner-text">
+          SÍGUENOS EN REDES SOCIALES Y VISITA NUESTRO SITIO WEB | https://inisio.github.io/DefenzaJuridica
+        </p>
       </footer>
 
-    </div>
-
-    <!-- Módulo Vanilla JavaScript -->
-    <script type="module" src="/src/main.ts"></script>
+    </article>
   </body>
 </html>
